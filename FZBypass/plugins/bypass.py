@@ -20,10 +20,10 @@ async def start_msg(client, message):
     
     <i><b>Bot Started {convert_time(time() - BOT_START)} ago...</b></i>
 
-🛃 <b>Use Me Here :</b> @CyberPunkGrp <i>(Bypass Topic)</i>''',
+🛃 <b>Use Me Here :</b> @reaperzclub <i>(Bypass Topic)</i>''',
         quote=True,
         reply_markup=InlineKeyboardMarkup([
-            [InlineKeyboardButton('🎓 Dev', url='https://t.me/SilentDemonSD'), InlineKeyboardButton('🔍 Deploy Own', url="https://github.com/SilentDemonSD/FZBypassBot")]
+            [InlineKeyboardButton('🎓 Dev', url='https://t.me/acaatr')]
             ])
     )
 
@@ -74,15 +74,15 @@ async def bypass_check(client, message):
             bp_link = f"\n┖ <b>Bypass Link:</b> {result}"
     
         if is_excep_link(link):
-            parse_data.append(f"{bp_link}\n\n━━━━━━━✦✗✦━━━━━━━\n\n")
+            parse_data.append(f"{bp_link}\n\n\n")
         else:
-            parse_data.append(f'┎ <b>Source Link:</b> {link}{bp_link}\n\n━━━━━━━✦✗✦━━━━━━━\n\n')
+            parse_data.append(f'┎ <b>Source Link:</b> {link}{bp_link}\n\n\n')
             
     end = time()
 
     if len(parse_data) != 0:
         parse_data[-1] = parse_data[-1] + f"┎ <b>Total Links : {no}</b>\n┠ <b>Results In <code>{convert_time(end - start)}</code></b> !\n┖ <b>By </b>{message.from_user.mention} ( #ID{message.from_user.id} )"
-    tg_txt = "━━━━━━━✦✗✦━━━━━━━\n\n"
+    tg_txt = "\n"
     for tg_data in parse_data:
         tg_txt += tg_data
         if len(tg_txt) > 4000:
@@ -154,7 +154,7 @@ async def inline_query(client, query):
                 ),
                 description="Bypass via !bp [link]",
                 reply_markup=InlineKeyboardMarkup([
-                        [InlineKeyboardButton("FZ Channel", url="https://t.me/FXTorrentz"),
+                        [InlineKeyboardButton("FZ Channel", url="https://t.me/reaperzclub"),
                         InlineKeyboardButton('Try Bypass', switch_inline_query_current_chat="!bp ")]
                 ])
             ))
